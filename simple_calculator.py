@@ -1,6 +1,14 @@
 
 # Let's have a simple calculator
+
+__author__ = "Vignesh Durairaj <vignesh87.srkv@gmail.com>"
+
+import os
+
 while True:
+
+    os.system('clr')
+    os.system('clear')
 
     print("Options:")
     print("Enter 'add' to add two numbers")
@@ -26,3 +34,5 @@ while True:
             print("The division of " + str(num_one) + " and " + str(num_two) + " : " + str(num_one / num_two))
     else:
         print("Unknown input")
+
+    dummy = raw_input('Press Enter to move on...')
