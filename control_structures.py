@@ -99,10 +99,66 @@ print(my_list)
 
 my_list += ['Bananas']
 print(my_list)
-my_list *= 2
-print(my_list)
+another_list = my_list * 2
+print(another_list)
 
 print ('Grapes' in my_list)
 print ('Grapes' in another_list)
 print ('Pears' not in my_list)
 print (not 'Grapes' in my_list)
+
+print(len(my_list))
+my_list.append('Pears')
+print(my_list)
+print(len(my_list))
+my_list.insert(0, 'Guavas')
+print(my_list)
+print(len(my_list))
+
+words_list = []
+words_list += my_list[1]
+print(words_list[0])
+print(words_list[1])
+
+print(words_list.index("A"))
+print(words_list.index('p'))
+
+print (max(words_list))
+print (min(words_list))
+print (words_list.count('p'))
+words_list.remove('p') # Aples
+print (words_list) #['A', 'p', 'l', 'e', 's']
+words_list.reverse()
+print (words_list) #['s', 'e', 'l', 'p', 'A']
+
+# Now, I'm getting introduced to the Ranges
+number_list = [1,2,3]
+print(number_list)
+number_list = list(range(10))
+print(number_list)
+number_list = list(range(2,12))
+print(number_list)
+
+print(type(number_list)) # <class 'list'>
+print(type(range(5))) # <class 'range'>
+
+number_list = list(range(0, 20, 3))
+print(number_list)
+
+# Coming to the interesting part of all.... FOR LOOOOOOPS
+for number in range(2, 21, 2):
+    if number >= 19:
+        print("Breaking at 19")
+        break
+
+    print("The Number value is : " + str(number))
+
+# Finally its time for some exercises
+list = [1, 1, 2, 3, 5, 8, 13]
+print(list[list[4]]) # 8 --> list[4] = 5 and hence list[list[4]] = list[5] == 8
+
+for i in range(10):
+  if not i % 2 == 0:
+    print(i+1)
+
+# Output is 2 to 10 even numbers
