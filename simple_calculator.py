@@ -1,4 +1,3 @@
-
 # Let's have a simple calculator
 
 __author__ = "Vignesh Durairaj <vignesh87.srkv@gmail.com>"
@@ -9,6 +8,7 @@ while True:
 
     os.system('clr')
     os.system('clear')
+    os.system('cls' if os.name == 'nt' else 'clear')
 
     print("Options:")
     print("Enter 'add' to add two numbers")
@@ -21,8 +21,8 @@ while True:
     if user_input == "quit":
         break
     elif user_input in ['add', 'subtract', 'multiply', 'divide']:
-        num_one = input("Enter value for number 1 : ")
-        num_two = input("Enter value for number 2 : ")
+        num_one = int(input("Enter value for number 1 : "))
+        num_two = int(input("Enter value for number 2 : "))
 
         if user_input == "add":
             print("The addition of " + str(num_one) + " and " + str(num_two) + " : " + str(num_one + num_two))
@@ -35,4 +35,7 @@ while True:
     else:
         print("Unknown input")
 
-    dummy = raw_input('Press Enter to move on...')
+    input('Press Enter to move on...')
+
+    # For python 2.x, use the below
+    # raw_input('Press Enter to move on...')
