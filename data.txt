@@ -1,0 +1,4 @@
+| FIRST_NAME		| SECOND_NAME		| CITY				|
+|-------------------|-------------------|-------------------|
+| VIGNESH			| DURAIRAJ			| CHENNAI			|
+| DURAIRAJ			| SUBRAMANIAM		| TIRUPUR			|
