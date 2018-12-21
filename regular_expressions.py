@@ -77,29 +77,146 @@ Below are some of the useful Meta-Characters
 * [] (square braces) - Character classes - Matching any of the character in the set
 * [-] (character classes with Hyphen) - Matching any characters in the range specified
 * ^ (caret only) - The invert the character class, when placed first in it. I.E., any character other than the array
+* * (asterix) - Zero or more repetitions of the previous thing, which can be anything in parentheses (())
+* + (plus) - One or more repetitions of the previous thing, which can be anything
+* ? (Quetion mark) - Zero or One repetitions
+* {} (curly braces) - Represents the number of repetitions between two numbers. Eg:{2, 4} - Two to four repetitions.
+* | (Pipe symbol) - Like this or than. 'Text1|Text2' = Either 'Text1' or 'Text2'
+If first number is missing it will be taken as 0. And if second is missing, it will be considered infinity
 """
 
 pattern = r'sp.m'
 print(re.match(pattern, "spam"))
 print(re.match(pattern, "spAm"))
-print(re.match(pattern, "sp1m"))
+print(re.match(pattern, "sp1m")) # Returns None
 
 pattern = r"^gr.y$"
 print(re.match(pattern, "gray"))
 print(re.match(pattern, "grey"))
-print(re.match(pattern, "stingray"))
+print(re.match(pattern, "stingray")) # Returns None
 
 pattern = r"[aeiouAEIOU]"
 print(re.match(pattern, "Grey"))
 print(re.match(pattern, "Ant"))
-print(re.match(pattern, "Myth"))
+print(re.match(pattern, "Myth")) # Returns None
 
 pattern = r"[a-z][A-Z][0-9]"
-print(re.match(pattern, "Ab1"))
+print(re.match(pattern, "Ab1")) # Returns None
 print(re.match(pattern, "cZ3"))
-print(re.match(pattern, "Mo12"))
+print(re.match(pattern, "Mo12")) # Returns None
 
 pattern = r"[^0-9]"
 print(re.search(pattern, "ABC"))
 print(re.search(pattern, "abc12"))
-print(re.search(pattern, "123433"))
+print(re.search(pattern, "123433")) # Returns None
+
+pattern = r"test([0-9])*"
+print(re.match(pattern, "test"))
+print(re.match(pattern, "test123"))
+print(re.match(pattern, "123_test_new")) # Returns None
+
+pattern = r"test[0-9]+"
+print(re.match(pattern, "test")) # Returns None
+print(re.match(pattern, "test123"))
+print(re.match(pattern, "test_new")) # Returns None
+
+pattern = r"first(-)?name"
+print(re.match(pattern, "firstname"))
+print(re.match(pattern, "first-name"))
+print(re.match(pattern, "first--name")) # Returns None
+
+pattern = r"9(1){1,2}$"
+print(re.match(pattern, "91"))
+print(re.match(pattern, "911"))
+print(re.match(pattern, "9111")) # Returns None
+print(re.match(pattern, "911-Emergency")) # Returns None
+
+pattern = r"([a-z]|[0-9])+"
+print(re.match(pattern, "test"))
+print(re.match(pattern, "123"))
+print(re.match(pattern, "TEST")) # returns None
+print(re.match(pattern, "*&%")) # returns None
+
+"""
+Groups
+======
+
+A group can be created by surrounding part of a regular expression with parentheses. This means that a group can be 
+given as an argument to metacharacters such as * and ?. Refer few of the above examples.
+
+The content of groups in a match can be accessed using the group function.
+
+A call of group(0) or group() returns the whole match.
+A call of group(n), where n is greater than 0, returns the nth group from the left.
+The method groups() returns all groups up from 1.
+
+There are several kinds of special groups. 
+Two useful ones are 'named groups' and 'non-capturing groups'.
+
+Named groups have the format (?P<name>...), where name is the name of the group, and ... is the content. They behave 
+exactly the same as normal groups, except they can be accessed by group(name) in addition to its number.
+
+Non-capturing groups have the format (?:...). They are not accessible by the group method, so they can be added to an 
+existing regular expression without breaking the numbering.
+"""
+
+pattern = r"a(bc)(de)(f(g)h)i"
+match = re.match(pattern, "abcdefghijklmnop")
+if match:
+   print(match.group())
+   print(match.group(0))
+   print(match.group(1))
+   print(match.group(2))
+   print(match.groups())
+
+pattern = r"(?P<first>abc)(?:def)(ghi)"
+match = re.match(pattern, "abcdefghi")
+if match:
+   print(match.group("first"))
+   print(match.groups())
+
+"""
+Special Sequences :
+===================
+
+There are various special sequences you can use in regular expressions. They are written as a backslash followed by 
+another character. One useful special sequence is a backslash and a number between 1 and 99, e.g., \1 or \17. This 
+matches the expression of the group of that number. To put that simpler, this matches the pattern for the number of
+times ihe group gets repeated
+
+More useful special sequences are \d, \s, and \w. These match digits, whitespace, and word characters respectively. 
+In ASCII mode they are equivalent to [0-9], [ \t\n\r\f\v], and [a-zA-Z0-9_]. In Unicode mode they match certain other 
+characters, as well. For instance, \w matches letters with accents. Versions of these special sequences with upper case 
+letters - \D, \S, and \W - mean the opposite to the lower-case versions. For instance, \D matches anything that isn't a 
+digit.
+
+Additional special sequences are \A, \Z, and \b.
+The sequences \A and \Z match the beginning and end of a string, respectively. 
+The sequence \b matches the empty string between \w and \W characters, or \w characters and the beginning or end of the 
+string. Informally, it represents the boundary between words.
+The sequence \B matches the empty string anywhere else.
+"""
+
+pattern = r"([0-9])\1"
+print(re.match(pattern, "999"))
+print(re.match(pattern, "111"))
+print(re.match(pattern, "344")) # Return None
+
+pattern = r"\D\d"
+print(re.match(pattern, "*1"))
+print(re.match(pattern, "a1"))
+print(re.match(pattern, "21")) # Returns None
+
+"""
+Email Extraction :
+==================
+
+pattern =  r"([\w\.-]+)@([\w\.-]+)(\.[\w\.]+)"
+"""
+
+pattern = r"([\w\.-]+)@([\w\.-]+)(\.[\w\.]+)"
+str = "Please contact info@sololearn.com for assistance"
+
+match = re.search(pattern, str)
+if match:
+   print(match.group())
