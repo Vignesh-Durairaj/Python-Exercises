@@ -40,6 +40,7 @@ Could work on getting it to put in linebreaks around 70
 columns, so the output looks better.
 
 """
+# Solution by Vignesh Durairaj
 
 import random
 import sys
@@ -47,14 +48,25 @@ import sys
 
 def mimic_dict(filename):
   """Returns mimic dict mapping each word to list of words which follow it."""
-  # +++your code here+++
-  return
+  prev, dict, f = '', {}, open(filename, 'r')
+  words = f.read()
+
+  for word in words:
+    dict[prev] = [word] if prev not in dict else dict.get(prev).append(word)
+    prev = word
+  f.close()
+  return dict
 
 
 def print_mimic(mimic_dict, word):
   """Given mimic dict and start word, prints 200 random words."""
-  # +++your code here+++
-  return
+  for x_unused in range(200):
+    print word,
+    next_words = mimic_dict.get[word]
+    if not next_words:
+      next_words = mimic_dict.get['']
+      word = random.choice(next_words)
+  return None
 
 
 # Provided main(), calls mimic_dict() and mimic()
