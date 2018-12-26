@@ -36,6 +36,7 @@ Optional: define a helper function to avoid code duplication inside
 print_words() and print_top().
 
 """
+# Solution by Vignesh Durairaj
 
 import sys
 
@@ -46,6 +47,35 @@ import sys
 # Then print_words() and print_top() can just call the utility function.
 
 ###
+
+def last(tuple):
+  return tuple[-1]
+
+def get_dict(filename):
+  try:
+    f, dict = open(filename, 'r'), {}
+    for word in f.read().lower().split():
+      dict[word] = 1 if word not in dict else dict[word] + 1
+
+    f.close()
+    return dict
+  except IOError:
+    print("No such file / directory exists with the name : " + filename)
+
+def print_words(filename):
+  my_dict = get_dict(filename)
+  if my_dict:
+    for key in sorted(my_dict.keys()):
+      print key, my_dict[key]
+
+def print_top(filename):
+  my_dict = get_dict(filename)
+  if my_dict:
+    sorted_dict_list = sorted(my_dict.items(), key = last, reverse = True)
+    for i in range(20):
+      if i < len(sorted_dict_list):
+        tuple = sorted_dict_list[i]
+        print tuple[0], tuple[1]
 
 # This basic command line argument parsing code is provided and
 # calls the print_words() and print_top() functions which you must define.
