@@ -1,6 +1,6 @@
 <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg"
      alt="Python Logo"
-     style="float: right; margin-left: 10px; width:50%; height:60%" 
+     style="float: right; margin-left: 10px;" 
      align="right"/>
 
 # Python Exercises
