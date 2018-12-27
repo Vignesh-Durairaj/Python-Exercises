@@ -4,7 +4,7 @@
      align="right"/>
 
 # Python Exercises
-A set of exercises from various sources using **Python programmin language**.
+A set of exercises from various sources using **Python programming language**.
 
 1. Started with a simple *Hello-World* program from **CoderPad - Sandbox**
 2. Followed by exercises and documentations from **SoloLearn.com**
