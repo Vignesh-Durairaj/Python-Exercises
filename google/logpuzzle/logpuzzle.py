@@ -18,6 +18,9 @@ Here's what a puzzle url looks like:
 10.254.254.28 - - [06/Aug/2007:00:13:48 -0700] "GET /~foo/puzzle-bar-aaab.jpg HTTP/1.0" 302 528 "-" "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.6) Gecko/20070725 Firefox/2.0.0.6"
 """
 
+def sort_last(path_name):
+  match = re.search(r'\w+-\w+-(\w+)\.', path_name)
+  return match.group(1) if match else path_name
 
 def read_urls(filename):
   """Returns a list of the puzzle urls from the given log file,
@@ -35,7 +38,7 @@ def read_urls(filename):
       if 'puzzle' in url_path and url_path not in url_list : url_list.append(url_path)
   logfile.close()
 
-  return sorted(url_list)
+  return sorted(url_list, key=sort_last)
   
 
 def download_images(img_urls, dest_dir):
@@ -47,13 +50,25 @@ def download_images(img_urls, dest_dir):
   Creates the directory if necessary.
   """
   # Solution by Vignesh Durairaj
+  # Create the destination directory if not exists
+  if not os.path.exists(dest_dir): os.makedirs(dest_dir)
+
+  # Create the HTML file and add image in the order of specified order in IMG tag
+  f = open(os.path.join(dest_dir, 'index.html'), 'w')
+  f.write('<html><body>')
+  for i in range(0, len(img_urls)):
+    print('Downloading image # ' + str(i) + ' from : ' + img_urls[i])
+    urllib.urlretrieve(img_urls[i], os.path.join(dest_dir, 'img' + str(i) + '.jpg'))
+    f.write('<img src = "img' + str(i) + '.jpg">')
   
+  f.write('</body</html>')
+  f.close()
 
 def main():
   args = sys.argv[1:]
 
   if not args:
-    print 'usage: [--todir dir] logfile '
+    print ('usage: [--todir dir] logfile ')
     sys.exit(1)
 
   todir = ''
@@ -66,7 +81,7 @@ def main():
   if todir:
     download_images(img_urls, todir)
   else:
-    print '\n'.join(img_urls)
+    print ('\n'.join(img_urls))
 
 if __name__ == '__main__':
   main()
