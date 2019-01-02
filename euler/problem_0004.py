@@ -23,11 +23,12 @@ def is_palindrome(n):
 Parameter n = number of digits
 """
 def large_palindrome_product(n):
-    num = 10 ** n
+    num, big_prod = 10 ** n, -1
 
     for i in range(num - 1, (num // 10) + 1, -1):
-        for j in range(num - 1, (num // 10) + 1, -1):
+        for j in range(i, (num // 10) + 1, -1):
             prod = i * j;
-            if prod % 10 == 0: break
             if is_palindrome(prod):
-                return prod
+                if prod < big_prod: break
+                else: big_prod = prod
+    return big_prod
