@@ -32,13 +32,19 @@
 # is the same challenge with a triangle containing one-hundred rows; it cannot be solved by brute force, and requires a
 # clever method! ;o)
 
+
 def get_array(in_str):
     arr = in_str.strip().split('\n')
     for i in range(len(arr)): arr[i] = map(int, arr[i].split())
     return arr
 
-def get_max_path_sum(in_str):
+
+def get_max_path_sum_from_arr(in_str):
     in_arr = get_array(in_str)
+    return get_max_path_sum(in_arr)
+
+
+def get_max_path_sum(in_arr):
     for i in reversed(range(len(in_arr) - 1)):
         for j in range(len(in_arr[i])):
             in_arr[i][j] += max(in_arr[i+1][j], in_arr[i+1][j+1])
