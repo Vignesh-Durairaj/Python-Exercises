@@ -12,15 +12,13 @@
 # A leap year occurs on any year evenly divisible by 4, but not on a century unless it is divisible by 400.
 # How many Sundays fell on the first of the month during the twentieth century (1 Jan 1901 to 31 Dec 2000)?
 
-
 import datetime
-import collections
 
-counter = collections.Counter()
 
-for year in range(1901, 2001):
-    for month in range(1, 13):
-        day = datetime.date(year, month, 1)
-        counter[day.weekday()] += 1
-
-print(counter[6])
+def get_first_day_sunday_count():
+    first_day_count = [0, 0, 0, 0, 0, 0, 0]
+    for year in range(1901, 2001):
+        for month in range(1, 13):
+            day = datetime.date(year, month, 1)
+            first_day_count[day.weekday()] += 1
+    return first_day_count[6]
