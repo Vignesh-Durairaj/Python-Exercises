@@ -16,9 +16,9 @@ import datetime
 
 
 def get_first_day_sunday_count():
-    first_day_count = [0, 0, 0, 0, 0, 0, 0]
+    first_is_sunday_cnt = 0;
     for year in range(1901, 2001):
         for month in range(1, 13):
             day = datetime.date(year, month, 1)
-            first_day_count[day.weekday()] += 1
-    return first_day_count[6]
+            first_is_sunday_cnt += 1 if day.weekday() == 6 else 0
+    return first_is_sunday_cnt
