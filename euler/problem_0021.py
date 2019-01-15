@@ -19,7 +19,7 @@ Nothing special. I used brute force. Yeah, you'd seen it correct... BRUTE FORCE.
 num_dict = {}
 
 
-def  get_proper_factors_sum(num):
+def get_proper_factors_sum(num):
     return sum([i for i in range(1, num) if num % i == 0])
 
 
