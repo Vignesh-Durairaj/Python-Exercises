@@ -12,15 +12,17 @@ Solution Approach
 * else move on to next number
 * Break the loop if the desired counter is reached
 """
+
+
 def is_prime(n):
     if n == 1:
-        return True;
+        return True
     if n != 2 and n % 2 == 0:
-        return False;
+        return False
     for i in range(2, int(n ** 0.5) + 1): # Iterating only upto the square root
         if n % i == 0:
-            return False;
-    return True;
+            return False
+    return True
 
 
 def get_prime(n):
