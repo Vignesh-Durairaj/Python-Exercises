@@ -16,7 +16,7 @@ Solution Approach
 
 def is_prime(n):
     if n == 1:
-        return True
+        return False
     if n != 2 and n % 2 == 0:
         return False
     for i in range(2, int(n ** 0.5) + 1): # Iterating only upto the square root
