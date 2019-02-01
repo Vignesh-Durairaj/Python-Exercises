@@ -15,7 +15,7 @@ Solution Approach:
 even number
 """
 
-from euler.problem_0007 import get_prime_list as get_prime_list
+from euler.problem_0027 import get_prime_list as get_prime_list
 
 
 primes_list = get_prime_list(1000000)
