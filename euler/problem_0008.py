@@ -45,8 +45,10 @@ def prod(nums):
         product *= num
     return product
 
+
 def straighten_number(input):
     return ''.join(input.split())
+
 
 def get_largest_prod(input, digit):
     flat_input, nums = straighten_number(input), []
