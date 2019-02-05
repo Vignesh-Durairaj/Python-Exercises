@@ -39,19 +39,20 @@ Solution Approach
 * iterate till the end
 """
 
+
 def prod(nums):
-    product = 1;
+    product = 1
     for num in nums:
         product *= num
     return product
 
 
-def straighten_number(input):
-    return ''.join(input.split())
+def straighten_number(in_val):
+    return ''.join(in_val.split())
 
 
-def get_largest_prod(input, digit):
-    flat_input, nums = straighten_number(input), []
+def get_largest_prod(in_val, digit):
+    flat_input, nums = straighten_number(in_val), []
 
     for i in range(digit):
         nums.append(int(flat_input[i]))
@@ -62,6 +63,7 @@ def get_largest_prod(input, digit):
         del nums[0]
         nums.append(int(flat_input[i + digit]))
         new_prod = prod(nums)
-        if largest_prod < new_prod: largest_prod = new_prod
+        if largest_prod < new_prod:
+            largest_prod = new_prod
 
     return largest_prod

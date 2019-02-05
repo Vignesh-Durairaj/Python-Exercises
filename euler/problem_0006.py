@@ -18,11 +18,10 @@ Solution Approach
 * Sum of natural numbers upto N = N(N+1)/2
 * Sum of square of natural numbers upto N = N(N+1)(2N+1)/6
 * Applying above formulae to identify the number reduces the complexity
-
 """
 
-def square_sum_diff(n):
-    sum = n * (n + 1) / 2
-    square_sum = n * (n + 1) * ((2 * n) + 1) / 6
 
-    return  (sum ** 2) - square_sum
+def square_sum_diff(n):
+    sum_val = n * (n + 1) / 2
+    square_sum = n * (n + 1) * ((2 * n) + 1) / 6
+    return (sum_val ** 2) - square_sum

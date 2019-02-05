@@ -15,19 +15,17 @@ Solution approach
 * Return the value.
 """
 
+
 def is_palindrome(n):
     n_str = str(n)
     return True if n_str == n_str[::-1] else False
 
-"""
-Parameter n = number of digits
-"""
+
 def large_palindrome_product(n):
     num, big_prod = 10 ** n, -1
-
     for i in range(num - 1, (num // 10) + 1, -1):
         for j in range(i, (num // 10) + 1, -1):
-            prod = i * j;
+            prod = i * j
             if is_palindrome(prod):
                 if prod < big_prod: break
                 else: big_prod = prod
