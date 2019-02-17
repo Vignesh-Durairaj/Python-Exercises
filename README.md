@@ -14,3 +14,4 @@ A set of exercises from various sources using **Python programming language**.
 3. Next with some exercises from *PyQuick* program by **Google - engEDU**
 4. Then started solving problems and challenges from **projecteuler.net**
 5. Also in parallel to the above, started solving some challenges from **hackerrank.com**
+6. Included few of some general small scale exercises that I encountered in **random**
