@@ -10,6 +10,16 @@
 # Find the smallest prime which, by replacing part of the number (not necessarily adjacent digits) with the same digit,
 # is part of an eight prime value family.
 
+"""
+Solution Approah:
+=================
+* Get the complete list of primes less than a million
+* For an eight prime family we need a six digit prime number with 3 repeatable digits at-least
+* If in case it has more than 3 of repeatable digits in any order it will be divisible by 3
+* The last digit should not be a part of the repeatable digits, since this will create a composite
+* Check only for digits repeating with values of 0, 1 or 2 since other higher values still give out a composite
+"""
+
 from euler.problem_0027 import get_prime_list
 primes = get_prime_list(1000000)
 
