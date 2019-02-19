@@ -23,6 +23,7 @@ concatenated value of these three
 """
 
 from euler.problem_0027 import get_prime_list
+from itertools import permutations
 
 prime_list = [prime for prime in get_prime_list(9999) if prime > 1487]
 
