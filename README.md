@@ -10,7 +10,7 @@
 A set of exercises from various sources using **Python programming language**.
 
 1. Started with a simple *Hello-World* program from **CoderPad - Sandbox**.
-2. Followed by exercises and documentations from **SoloLearn.com**
+2. Followed by exercises and documentations from **SoloLearn.com**.
 3. Next with some exercises from *PyQuick* program by **Google - engEDU**
 4. Then started solving problems and challenges from **projecteuler.net**
 5. Also in parallel to the above, started solving some challenges from **hackerrank.com**
