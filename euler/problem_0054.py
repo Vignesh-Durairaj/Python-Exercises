@@ -47,3 +47,15 @@
 # order, and in each hand there is a clear winner.
 #
 # How many hands does Player 1 win?
+
+
+dict_card = {'2':2, '3':3, '4':4, '5':5, '6':6, '7':7, '8':8, '9':9, '10':10, 'J':11, 'Q':12, 'K':13, 'A':14}
+
+
+def get_hands_from_file():
+    f, hands_list = open('p054_poker.txt', 'r'), []
+    for line in f:
+        hands = line.strip().split(' ')
+        hands_list.append((tuple(hands[:5]), tuple(hands[5:])))
+    return hands_list
+
