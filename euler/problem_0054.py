@@ -48,9 +48,16 @@
 #
 # How many hands does Player 1 win?
 
+"""
+Solution Approach:
+=================
+P1 wins 376
 
-dict_card = {'2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9, '10': 10, 'J': 11, 'Q': 12, 'K': 13,
+"""
+
+card_dict = {'2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9, '10': 10, 'J': 11, 'Q': 12, 'K': 13,
              'A': 14}
+straights = [(v, v - 1, v - 2, v - 3, v - 4) for v in reversed(range(6, 15))] + [(14, 5, 4, 3, 2)]
 
 
 def get_hands_from_file():
@@ -59,6 +66,10 @@ def get_hands_from_file():
         hands = line.strip().split(' ')
         hands_list.append((tuple(hands[:5]), tuple(hands[5:])))
     return hands_list
+
+
+def get_hand_value(hand):
+    return dict(map(lambda item: (card_dict[item[:-1]],item[-1]), hand))
 
 
 def is_player_one_winner(hand):
