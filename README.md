@@ -7,7 +7,7 @@
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/7dfc687144a34e04bb61d4b830f35c66)](https://app.codacy.com/app/Vignesh-Durairaj/Python-Exercises?utm_source=github.com&utm_medium=referral&utm_content=Vignesh-Durairaj/Python-Exercises&utm_campaign=Badge_Grade_Dashboard)
 
-A set of exercises from various sources using **Python programming language**
+A set of exercises from various sources using **Python programming language**.
 
 1. Started with a simple *Hello-World* program from **CoderPad - Sandbox**
 2. Followed by exercises and documentations from **SoloLearn.com**
