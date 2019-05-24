@@ -58,3 +58,21 @@
 # ===============
 #
 # 0
+
+"""
+Solution Approach
+=================
+
+* Find the maximum of the input array
+* Subtract the max with the input value of K and return the number
+
+"""
+
+
+def min_potion_needed(k, height):
+    max_height = max(height)
+    return max_height - k if max_height > k else 0
+
+
+print(min_potion_needed(4, [1, 6, 3, 5, 2]))
+print(min_potion_needed(7, [2, 5, 4, 5, 2]))
