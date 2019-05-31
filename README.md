@@ -5,7 +5,7 @@
 
 # Python Exercises
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/7dfc687144a34e04bb61d4b830f35c66)](https://app.codacy.com/app/Vignesh-Durairaj/Python-Exercises?utm_source=github.com&utm_medium=referral&utm_content=Vignesh-Durairaj/Python-Exercises&utm_campaign=Badge_Grade_Dashboard)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/7dfc687144a34e04bb61d4b830f35c66)](https://app.codacy.com/app/Vignesh-Durairaj/Python-Exercises?utm_source=github.com&utm_medium=referral&utm_content=Vignesh-Durairaj/Python-Exercises&utm_campaign=Badge_Grade_Dashboard) ![Twitter Follow](https://img.shields.io/twitter/follow/vigneshdurairaj.svg?style=social)
 
 A set of exercises from various sources using **Python programming language**.
 
