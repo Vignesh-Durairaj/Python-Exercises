@@ -7,6 +7,7 @@
 
 import sys
 
+
 def main():
     args = sys.argv
     if len(args) == 2 and args[1].isdigit():
@@ -15,6 +16,7 @@ def main():
         param = 10
 
     print(sum([i for i in range(1, param) if i % 3 == 0 or i % 5 == 0]))
+
 
 if __name__ == '__main__':
     main()
